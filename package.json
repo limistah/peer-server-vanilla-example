@@ -1,0 +1,17 @@
+{
+  "name": "server-test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "customApp.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "peer-server-vanilla": "^1.0.0",
+    "uuid": "^8.1.0"
+  }
+}
