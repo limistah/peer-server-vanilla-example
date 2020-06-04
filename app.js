@@ -4,6 +4,8 @@ const app = express();
 
 app.get("/", (req, res, next) => res.send("Hello world!"));
 
+const PORT = process.env.PORT || 9000;
+
 const http = require("http");
 
 const server = http.createServer(app);
@@ -12,6 +14,7 @@ const peerServer = ExpressPeerServer(server, {
   debug: true,
   path: "/",
   allow_discovery: true,
+  port: PORT,
 });
 
 app.use("/peerjs", peerServer);
@@ -33,7 +36,5 @@ peerServer.on("connection", (client) => {
 peerServer.on("disconnect", (client) => {
   console.log(client);
 });
-
-const PORT = process.env.PORT || 9000;
 
 server.listen(PORT);
