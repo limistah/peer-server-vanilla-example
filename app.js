@@ -34,4 +34,6 @@ peerServer.on("disconnect", (client) => {
   console.log(client);
 });
 
-server.listen(9000);
+const PORT = process.env.PORT || 9000;
+
+server.listen(PORT);
