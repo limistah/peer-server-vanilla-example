@@ -4,9 +4,11 @@ const app = express();
 var cors = require("cors");
 app.use(cors());
 app.get("/", (req, res, next) => res.send("Hello world!"));
-app.get("/peers", (req, res, next) =>
-  res.status(200).json(realm.getClientsIds())
-);
+app.get("/peers", (req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "X-Requested-With");
+  res.status(200).json(realm.getClientsIds());
+});
 
 const PORT = process.env.PORT || 9000;
 
