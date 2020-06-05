@@ -3,6 +3,9 @@ const { ExpressPeerServer, realm } = require("peer-server-vanilla");
 const app = express();
 
 app.get("/", (req, res, next) => res.send("Hello world!"));
+app.get("/peers", (req, res, next) =>
+  res.status(200).json(realm.getClientsIds())
+);
 
 const PORT = process.env.PORT || 9000;
 
