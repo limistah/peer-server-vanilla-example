@@ -1,7 +1,8 @@
 const express = require("express");
 const { ExpressPeerServer, realm } = require("peer-server-vanilla");
 const app = express();
-
+var cors = require("cors");
+app.use(cors());
 app.get("/", (req, res, next) => res.send("Hello world!"));
 app.get("/peers", (req, res, next) =>
   res.status(200).json(realm.getClientsIds())
